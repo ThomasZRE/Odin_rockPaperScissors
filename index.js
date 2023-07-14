@@ -32,17 +32,32 @@ function getComputerChoice() {
 
 function game() {
     let score = {"pc": 0, "player": 0};
-    for (let i = 0; i < 5; i++) {
-        console.log("Welcome!\nThis is Rock Paper Scissors!\nLet's play 5 rouunds!");
-        console.log("Round " + (i + 1));
-        let pc = getComputerChoice();
-        let player = parseInt(prompt("What's your choice? 1. Rock 2. Paper 3. Scissors"));
-        let winner = playRound(pc, array[player - 1]);
-        score[winner]++;    
-        console.log(score["pc"]);
-        console.log(score["player"]);
-        winner === "Draw" ? console.log("Draw!") : console.log("The winner is " + winner);
-    }
+    
+    console.log("Round ");
+    let pc = getComputerChoice();
+    let player;         // Player's choice (ongoing)
+    // buttons for UI
+    const btn1 = document.createElement("button");
+    btn1.innerText = "Rock";
+
+    const btn2 = document.createElement("button");
+    btn1.innerText = "Paper";
+
+    const btn3 = document.createElement("button");
+    btn1.innerText = "Scissors";
+
+    const buttons = document.querySelector("button");
+    buttons.addEventListener("click", function {
+        console.log(this);
+    })
+
+    document.body.add(btn1, btn2, btn3);
+
+    let winner = playRound(pc, array[player - 1]);
+    score[winner]++;    
+    console.log(score["pc"]);
+    console.log(score["player"]);
+    winner === "Draw" ? console.log("Draw!") : console.log("The winner is " + winner);
 
     console.log(`Total score\nPC: ${score.pc}\nYou: ${score.player}`);
 
