@@ -1,4 +1,4 @@
-alert("Hello, there!\nPlease go check the console");
+document.write("Hello, there!");
 
 const array = ["Rock", "Paper", "Scissors"];
 
@@ -41,19 +41,20 @@ function game() {
     btn1.innerText = "Rock";
 
     const btn2 = document.createElement("button");
-    btn1.innerText = "Paper";
+    btn2.innerText = "Paper";
 
     const btn3 = document.createElement("button");
-    btn1.innerText = "Scissors";
+    btn3.innerText = "Scissors";
 
-    const buttons = document.querySelector("button");
-    buttons.addEventListener("click", function {
-        console.log(this);
-    })
+    document.body.append(btn1, btn2, btn3);
 
-    document.body.add(btn1, btn2, btn3);
+    const buttons = document.querySelectorAll("button");
+        
+    buttons.forEach(button => button.addEventListener("click", function() {
+        player = button.innerText;
+    }));
 
-    let winner = playRound(pc, array[player - 1]);
+    let winner = playRound(pc, player);
     score[winner]++;    
     console.log(score["pc"]);
     console.log(score["player"]);
